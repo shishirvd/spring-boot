@@ -14,7 +14,7 @@ public class MyServicesController {
 	@GetMapping("/hello")
 	public String hello() {
 
-		asyncDataProcessor.process("code");
+		asyncDataProcessor.process("step1");
 		return "Hello!! How are you?";
 	}
 }

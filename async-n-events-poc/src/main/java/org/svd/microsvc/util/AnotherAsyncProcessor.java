@@ -6,20 +6,16 @@ import org.springframework.stereotype.Component;
 import org.svd.microsvc.events.MyEventPublisher;
 
 @Component
-public class AsyncDataProcessor {
-	
+public class AnotherAsyncProcessor {
+
 	@Autowired
 	private MyEventPublisher myEventPublisher;
-	
-	@Autowired
-	private AnotherAsyncProcessor anotherAsyncProcessor;
 
 	//@Async("threadPoolTaskExecutor")
 	@Async
 	public void process(String code) {
 	    System.out.println("Execute method asynchronously. " 
-	      + Thread.currentThread().getName() + " Processing -> "+code);
-	    myEventPublisher.publishCustomEvent("INITIATED");
-	    anotherAsyncProcessor.process("step2");
+	      + Thread.currentThread().getName() + " processing -> "+code);
+	    myEventPublisher.publishCustomEvent("PROCESSING");
 	}
 }

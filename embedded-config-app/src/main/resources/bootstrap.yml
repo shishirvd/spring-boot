@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: embedded
+  profiles:
+    active: composite, dev
+  cloud:
+    config:
+      server:
+        prefix: /config
+        composite:
+        - type: native
+          searchLocations: file://${user.home}/git/config-repo
+        #- type: git
+          #uri: file://${user.home}/git/config-repo
+          #username: 
+          #password: 
+        bootstrap: true

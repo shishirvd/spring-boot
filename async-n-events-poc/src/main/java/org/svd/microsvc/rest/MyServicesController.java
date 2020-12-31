@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.svd.microsvc.util.AsyncDataProcessor;
 
 @RestController
+@PreAuthorize("hasAuthority('ROLE_USER')")
 public class MyServicesController {
 	
 	@Autowired
